@@ -5,6 +5,7 @@ import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { detailUserController } from "./controllers/user/detailUserController";
 import { UpdateUserController } from "./controllers/user/updateUserController";
 import { CreateHeircutController } from "./controllers/heircut/createHeircutController";
+import { ListHeircutController } from "./controllers/heircut/listHaircutController";
 const router = Router();
 
 // router.get("/teste", (req: Request, res: Response) => {
@@ -21,5 +22,6 @@ router.put("/users", isAuthenticated, new UpdateUserController().handle);
 // -- ROTAS HAIRCUT --//
 
 router.post("/haircut", isAuthenticated, new CreateHeircutController().handle);
+router.get("/haircut", isAuthenticated, new ListHeircutController().handle);
 
 export { router };
